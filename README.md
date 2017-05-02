@@ -1,6 +1,6 @@
 # tscompiler
 
-##usage 
+## usage 
 
 ```shell
 node server.js
