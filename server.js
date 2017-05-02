@@ -34,7 +34,11 @@ server.use(restify.queryParser());
 server.use(restify.bodyParser());
 
 server.post("/tscompiler", ts);
-server.post("/html/normal", html)
+server.post("/html/normal", html);
+server.get("/", restify.serveStatic({
+    directory: "./app",
+    file: "index.html"
+}));
 
 server.listen(config.PORT, function () {
     console.log('%s listening at %s', server.name, server.url);

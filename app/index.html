@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            width: 900px;
+            margin: auto;
+        }
+        
+        .api-url {
+            font-weight: bolder;
+        }
+        
+        .api-tag {
+            border: 1px solid #000;
+            padding: 5px 10px;
+            font-size: 12px;
+        }
+        
+        .api-container {
+            border-top: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>api</h1>
+    <div class="api-container">
+        <p class="api-url">/home/normal</p>
+        <span class="api-tag">HTTPPOST</span>
+        <p>params:</p>
+        <ul>
+            <li><span>Data:</span>html expression</li>
+        </ul>
+        <p>returns:</p>
+        <pre>
+{
+    "Normal":bool, // true if the given expression is already normalized.
+    "Input":string, // the given expression,
+    "Output":string // the normalized expression
+}
+        </pre>
+    </div>
+    <div class="api-container">
+        <p class="api-url">/tscompiler</p>
+        <span class="api-tag">HTTPPOST</span>
+        <p>params:</p>
+        <ul>
+            <li><span>Source:</span>source code</li>
+            <li><span>Config:tsconfig.json</span></li>
+        </ul>
+        <p>returns:</p>
+        <pre>
+{
+    "outputText":string,    // compiled js code
+    "diagnostics":[]string
+}
+        </pre>
+    </div>
+</body>
+
+</html>
