@@ -1,6 +1,8 @@
 var restify = require('restify');
-var tscompiler = require('./services/ts').compiler;
 var Logger = require('bunyan');
+
+var ts = require('./controllers/ts').tshandler;
+var html = require('./controllers/html').normalizer;
 
 var server = restify.createServer({
     name: "tscompiler",
@@ -22,20 +24,8 @@ server.use(restify.acceptParser(server.acceptable));
 server.use(restify.queryParser());
 server.use(restify.bodyParser());
 
-server.post("/tscompiler", function (req, res, next) {
-    var config = req.params.Config;
-    var source = req.params.Source;
-    if (!config) {
-        config = {};
-    }
-    if (!source) {
-        res.status(404);
-        res.end();
-        return next();
-    }
-    res.send(tscompiler(source, config));
-    return next();
-});
+server.post("/tscompiler", ts);
+server.post("/html/normal", html)
 
 server.listen(8778, function () {
     console.log('%s listening at %s', server.name, server.url);
