@@ -22,7 +22,6 @@ node server.js
 }
 ```
 
-## api
 ### /html/normal
 + normalize the given html expression
 + method:post
