@@ -25,6 +25,7 @@ var server = restify.createServer({
 
 server.pre(function (req, res, next) {
     req.log.info({ req: req }, 'REQUEST');
+    res.setHeader("Access-Control-Allow-Origin", "*");
     next();
 });
 

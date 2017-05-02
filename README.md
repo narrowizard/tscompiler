@@ -3,13 +3,14 @@
 ## usage 
 
 ```shell
+npm install
 node server.js
 ```
 
 ## api
 
 ### /tscompiler
-+ compiler giving ts code to js.
++ compile giving ts code to js.
 + method:post
 + params:
     + Source:source code
